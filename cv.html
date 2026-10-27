@@ -42,13 +42,14 @@
     <div class="cv-header-container">
 
       <!-- Left: Back link & Profile info -->
+      <!-- Left: Back link & Profile info -->
       <div class="cv-header-left">
         <a href="index.html" class="cv-back-btn" title="Back to Portfolio">
           <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          <span>Portfolio</span>
+          <span data-i18n="cv_back">Portfolio</span>
         </a>
 
         <div class="cv-nav-divider"></div>
@@ -57,13 +58,13 @@
           <img src="./assets/avatar.jpg" alt="Dang Hong Phuc" class="cv-nav-avatar">
           <div class="cv-nav-info">
             <h1 class="cv-nav-name">Đặng Hồng Phúc</h1>
-            <span class="cv-nav-role">Backend Developer</span>
+            <span class="cv-nav-role" data-i18n="cv_role">Backend Developer</span>
           </div>
         </div>
 
         <span class="cv-status-pill">
           <span class="cv-status-dot"></span>
-          Available for Hire
+          <span data-i18n="cv_status">Available for Hire</span>
         </span>
       </div>
 
@@ -78,7 +79,7 @@
               <line x1="16" y1="17" x2="8" y2="17"></line>
               <polyline points="10 9 9 9 8 9"></polyline>
             </svg>
-            <span>PDF View</span>
+            <span data-i18n="cv_tab_pdf">PDF View</span>
           </button>
           <button id="tabWeb" class="cv-tab-btn" role="tab" aria-selected="false" title="View interactive web CV">
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
@@ -86,12 +87,12 @@
               <line x1="3" y1="9" x2="21" y2="9"></line>
               <line x1="9" y1="21" x2="9" y2="9"></line>
             </svg>
-            <span>Web View</span>
+            <span data-i18n="cv_tab_web">Web View</span>
           </button>
         </div>
       </div>
 
-      <!-- Right: Action Buttons (Download, Print, Direct, Theme) -->
+      <!-- Right: Action Buttons (Download, Print, Direct, Theme, Language) -->
       <div class="cv-header-right">
         <!-- Download PDF Button -->
         <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf" id="downloadPdfBtn"
@@ -101,7 +102,7 @@
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span>Download CV</span>
+          <span data-i18n="cv_download">Download CV</span>
         </a>
 
         <!-- Print Button -->
@@ -152,6 +153,13 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
           </svg>
         </button>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher" role="group" aria-label="Language Switcher">
+          <button class="lang-btn active" data-lang-btn="en" aria-label="English">EN</button>
+          <span class="lang-divider">/</span>
+          <button class="lang-btn" data-lang-btn="vi" aria-label="Tiếng Việt">VI</button>
+        </div>
       </div>
 
     </div>
@@ -209,7 +217,7 @@
       <!-- Loading Spinner -->
       <div id="loadingOverlay" class="cv-loading-overlay">
         <div class="cv-spinner"></div>
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">Rendering Dang Hong Phuc's CV...</p>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="cv_loading">Rendering Dang Hong Phuc's CV...</p>
       </div>
 
       <!-- High-DPI Canvas Card -->
@@ -232,7 +240,7 @@
           <div class="cv-doc-title-row">
             <div>
               <h2 class="cv-doc-name">DANG HONG PHUC</h2>
-              <p class="cv-doc-role">Backend Developer</p>
+              <p class="cv-doc-role" data-i18n="cv_role">Backend Developer</p>
             </div>
             <div>
               <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf"
@@ -242,7 +250,7 @@
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
-                <span>Download PDF</span>
+                <span data-i18n="cv_download_pdf">Download PDF</span>
               </a>
             </div>
           </div>
@@ -270,7 +278,7 @@
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                 <circle cx="12" cy="10" r="3"></circle>
               </svg>
-              <span>Bac Tu Liem, Ha Noi</span>
+              <span data-i18n="cv_address">Bac Tu Liem, Ha Noi</span>
             </span>
 
             <span class="cv-doc-contact-item">
@@ -278,15 +286,15 @@
                 <circle cx="12" cy="12" r="10"></circle>
                 <polyline points="12 6 12 12 16 14"></polyline>
               </svg>
-              <span>Born: 2005</span>
+              <span data-i18n="cv_born">Born: 2005</span>
             </span>
           </div>
         </header>
 
         <!-- Summary -->
         <section class="cv-doc-section">
-          <h3 class="cv-section-title">SUMMARY</h3>
-          <p class="cv-summary-text">
+          <h3 class="cv-section-title" data-i18n="cv_sec_summary">SUMMARY</h3>
+          <p class="cv-summary-text" data-i18n="cv_summary_text">
             Backend Developer Intern with hands-on experience in <strong>Node.js, Express.js, TypeScript, and
               MongoDB</strong>, specializing
             in building RESTful APIs and scalable backend applications. Familiar with JWT authentication, database
@@ -299,11 +307,11 @@
 
         <!-- Education -->
         <section class="cv-doc-section">
-          <h3 class="cv-section-title">EDUCATION</h3>
+          <h3 class="cv-section-title" data-i18n="cv_sec_edu">EDUCATION</h3>
           <div class="cv-edu-item">
-            <span class="cv-edu-school">Hanoi University of Industry (HaUI)</span>
-            <span class="cv-edu-time">2023 - 2027 (Expected)</span>
-            <div class="cv-edu-meta">
+            <span class="cv-edu-school" data-i18n="cv_edu_school">Hanoi University of Industry (HaUI)</span>
+            <span class="cv-edu-time" data-i18n="cv_edu_time">2023 - 2027 (Expected)</span>
+            <div class="cv-edu-meta" data-i18n="cv_edu_meta">
               Major: <strong>Information Technology</strong> (Final Year Student) • GPA: <strong>3.2 / 4.0</strong>
             </div>
           </div>
@@ -311,44 +319,44 @@
 
         <!-- Technical Skills -->
         <section class="cv-doc-section">
-          <h3 class="cv-section-title">TECHNICAL SKILLS</h3>
+          <h3 class="cv-section-title" data-i18n="cv_sec_skills">TECHNICAL SKILLS</h3>
           <div class="cv-skills-list">
             <div class="cv-skill-row">
-              <span class="cv-skill-label">Languages:</span>
+              <span class="cv-skill-label" data-i18n="cv_skill_lang">Languages:</span>
               <span class="cv-skill-value">JavaScript (ES6+), TypeScript, HTML/CSS</span>
             </div>
             <div class="cv-skill-row">
-              <span class="cv-skill-label">Backend:</span>
+              <span class="cv-skill-label" data-i18n="cv_skill_backend">Backend:</span>
               <span class="cv-skill-value">Node.js, Express.js, RESTful API, JWT Authentication, Socket.IO</span>
             </div>
             <div class="cv-skill-row">
-              <span class="cv-skill-label">Frontend:</span>
+              <span class="cv-skill-label" data-i18n="cv_skill_frontend">Frontend:</span>
               <span class="cv-skill-value">ReactJS, NextJS, Tailwind CSS, Bootstrap</span>
             </div>
             <div class="cv-skill-row">
-              <span class="cv-skill-label">Databases:</span>
+              <span class="cv-skill-label" data-i18n="cv_skill_db">Databases:</span>
               <span class="cv-skill-value">MongoDB (Mongoose), MySQL</span>
             </div>
             <div class="cv-skill-row">
-              <span class="cv-skill-label">Tools & Process:</span>
+              <span class="cv-skill-label" data-i18n="cv_skill_tools">Tools & Process:</span>
               <span class="cv-skill-value">Git, GitHub / GitLab, Postman, Nodemailer</span>
             </div>
             <div class="cv-skill-row">
-              <span class="cv-skill-label">Soft Skills:</span>
-              <span class="cv-skill-value">Time Management, Self-study, and Research</span>
+              <span class="cv-skill-label" data-i18n="cv_skill_soft">Soft Skills:</span>
+              <span class="cv-skill-value" data-i18n="cv_skill_soft_val">Time Management, Self-study, and Research</span>
             </div>
           </div>
         </section>
 
         <!-- Projects -->
         <section class="cv-doc-section">
-          <h3 class="cv-section-title">PROJECTS</h3>
+          <h3 class="cv-section-title" data-i18n="cv_sec_projects">PROJECTS</h3>
 
           <!-- Project 1: TravelGo -->
           <div class="cv-project-card">
             <div class="cv-proj-header">
               <h4 class="cv-proj-name">TravelGo Website (Server Side Rendering)</h4>
-              <span class="cv-proj-role">Backend Developer (Personal Project)</span>
+              <span class="cv-proj-role" data-i18n="cv_proj_role">Backend Developer (Personal Project)</span>
             </div>
             <div class="cv-proj-links">
               <a href="https://gitlab.com/phucdnag/travelgo" target="_blank" rel="noopener noreferrer"
@@ -372,16 +380,16 @@
               </a>
             </div>
             <div class="cv-proj-tech">
-              <strong>Tech Stack:</strong> NodeJS, ExpressJS, MongoDB & Mongoose, Pug, JWT Authentication, Cloudinary &
+              <strong data-i18n="cv_tech_label">Tech Stack:</strong> NodeJS, ExpressJS, MongoDB & Mongoose, Pug, JWT Authentication, Cloudinary &
               Multer, BcryptJS, Nodemailer
             </div>
             <ul class="cv-proj-features">
-              <li>Built a modular backend for a travel booking management system with CRUD operations for tours, blogs,
+              <li data-i18n="cv_p1_f1">Built a modular backend for a travel booking management system with CRUD operations for tours, blogs,
                 categories, orders, coupons, and contacts.</li>
-              <li>Implemented JWT authentication, role-based access control, and secure password hashing using bcrypt.
+              <li data-i18n="cv_p1_f2">Implemented JWT authentication, role-based access control, and secure password hashing using bcrypt.
               </li>
-              <li>Developed OTP-based password recovery and email notification using Nodemailer.</li>
-              <li>Implemented pagination, filtering, searching, bulk operations, and dashboard analytics for efficient
+              <li data-i18n="cv_p1_f3">Developed OTP-based password recovery and email notification using Nodemailer.</li>
+              <li data-i18n="cv_p1_f4">Implemented pagination, filtering, searching, bulk operations, and dashboard analytics for efficient
                 data management.</li>
             </ul>
           </div>
@@ -390,7 +398,7 @@
           <div class="cv-project-card">
             <div class="cv-proj-header">
               <h4 class="cv-proj-name">TechJobs Website (Client Side Rendering)</h4>
-              <span class="cv-proj-role">Backend Developer (Personal Project)</span>
+              <span class="cv-proj-role" data-i18n="cv_proj_role">Backend Developer (Personal Project)</span>
             </div>
             <div class="cv-proj-links">
               <a href="https://gitlab.com/phucdnag/techjobs" target="_blank" rel="noopener noreferrer"
@@ -425,14 +433,14 @@
               </a>
             </div>
             <div class="cv-proj-tech">
-              <strong>Tech Stack:</strong> RESTful API, Socket.IO, Node.js, Express.js, TypeScript, MongoDB, Mongoose,
+              <strong data-i18n="cv_tech_label">Tech Stack:</strong> RESTful API, Socket.IO, Node.js, Express.js, TypeScript, MongoDB, Mongoose,
               JWT Authentication, Cloudinary
             </div>
             <ul class="cv-proj-features">
-              <li>Developed RESTful APIs for recruitment, job posting, and CV management.</li>
-              <li>Implemented JWT-based authentication with role-based authorization.</li>
-              <li>Built job search, filtering, pagination, and online application features.</li>
-              <li>Integrated Socket.IO to enable real-time messaging between recruiters and candidates.</li>
+              <li data-i18n="cv_p2_f1">Developed RESTful APIs for recruitment, job posting, and CV management.</li>
+              <li data-i18n="cv_p2_f2">Implemented JWT-based authentication with role-based authorization.</li>
+              <li data-i18n="cv_p2_f3">Built job search, filtering, pagination, and online application features.</li>
+              <li data-i18n="cv_p2_f4">Integrated Socket.IO to enable real-time messaging between recruiters and candidates.</li>
             </ul>
           </div>
         </section>
@@ -450,7 +458,7 @@
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
       </svg>
-      <span>Download CV (PDF)</span>
+      <span data-i18n="cv_download_mobile">Download CV (PDF)</span>
     </a>
     <a href="mailto:phucdnag.dev@gmail.com" class="btn btn-outline" title="Email Phuc">
       <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
