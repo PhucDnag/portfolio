@@ -1,14 +1,5 @@
-/**
- * DANG HONG PHUC PORTFOLIO - JAVASCRIPT
- * Full interactive logic: Theme toggle, Multi-language (EN/VI) i18n,
- * Typing effect, Scrollspy, Project modals, and AI Assistant.
- */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  // =========================================================================
-  // 1. Initial Page Loading Animation
-  // =========================================================================
   const loader = document.getElementById('loader');
   if (loader) {
     setTimeout(() => {
@@ -16,16 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1200);
   }
 
-  // Set welcome message timestamp to current time
   const welcomeTimeEl = document.getElementById('welcomeTime');
   if (welcomeTimeEl) {
     const now = new Date();
     welcomeTimeEl.textContent = `${String(now.getHours()).padStart(2, '0')}.${String(now.getMinutes()).padStart(2, '0')}`;
   }
 
-  // =========================================================================
-  // 2. Theme Toggle (Light / Dark Mode with LocalStorage)
-  // =========================================================================
   const themeToggle = document.getElementById('themeToggle');
   const rootElement = document.documentElement;
 
@@ -42,9 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // =========================================================================
-  // 3. Multi-language (EN / VI) Translation Engine
-  // =========================================================================
   const translations = {
     en: {
       nav_home: "Home",
@@ -203,19 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentLang = localStorage.getItem('portfolio_lang') || 'en';
 
-  // Apply Language function
   function applyLanguage(lang, notify = false) {
     if (!translations[lang]) lang = 'en';
     currentLang = lang;
     localStorage.setItem('portfolio_lang', lang);
     document.documentElement.setAttribute('data-lang', lang);
 
-    // Update active class on buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
     });
 
-    // Update all elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
       if (translations[lang] && translations[lang][key]) {
@@ -223,13 +204,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Update placeholders
     const chatInput = document.getElementById('aiChatInput');
     if (chatInput && translations[lang].ai_input_placeholder) {
       chatInput.placeholder = translations[lang].ai_input_placeholder;
     }
 
-    // Reset typewriter words and restart typing
     wordsToType = wordsByLang[lang] || wordsByLang.en;
     wordIndex = 0;
     charIndex = 0;
@@ -240,7 +219,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Language button event listeners
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
       const targetLang = e.currentTarget.getAttribute('data-lang');
@@ -250,9 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================================
-  // 4. Dynamic Typewriter Effect in Hero Section
-  // =========================================================================
   const typingElement = document.getElementById('heroTyping');
   let wordsToType = wordsByLang[currentLang] || wordsByLang.en;
   let wordIndex = 0;
@@ -291,21 +266,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   typeEffect();
 
-  // =========================================================================
-  // 5. Floating Capsule Navbar & Scrollspy
-  // =========================================================================
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const navLinksContainer = document.getElementById('navLinks');
 
-  // Mobile menu toggle
   if (mobileMenuToggle && navLinksContainer) {
     mobileMenuToggle.addEventListener('click', () => {
       navLinksContainer.classList.toggle('mobile-open');
     });
 
-    // Close mobile menu when clicking a link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         navLinksContainer.classList.remove('mobile-open');
@@ -313,7 +283,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Active section scrollspy
   window.addEventListener('scroll', () => {
     let currentSectionId = 'home';
     const scrollY = window.pageYOffset;
@@ -336,9 +305,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // =========================================================================
-  // 6. Scroll Reveal Animations (Intersection Observer)
-  // =========================================================================
   const revealElements = document.querySelectorAll('.reveal-on-scroll');
 
   const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -355,9 +321,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  // =========================================================================
-  // 7. Project Details Modal Logic
-  // =========================================================================
   const projectDatabase = {
     travelgo: {
       title: {
@@ -452,7 +415,6 @@ document.addEventListener('DOMContentLoaded', () => {
       modalTitle.textContent = typeof project.title === 'object' ? (project.title[lang] || project.title.en) : project.title;
       modalDesc.textContent = typeof project.desc === 'object' ? (project.desc[lang] || project.desc.en) : project.desc;
 
-      // Populate features
       modalFeaturesList.innerHTML = '';
       const featuresList = (typeof project.features === 'object' && !Array.isArray(project.features))
         ? (project.features[lang] || project.features.en)
@@ -464,7 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
         modalFeaturesList.appendChild(li);
       });
 
-      // Populate tags
       modalTags.innerHTML = '';
       project.tags.forEach(tag => {
         const span = document.createElement('span');
@@ -482,7 +443,6 @@ document.addEventListener('DOMContentLoaded', () => {
           : (lang === 'vi' ? 'Mã Nguồn GitHub' : 'GitHub Repository');
       }
 
-      // Open Modal
       projectModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     });
@@ -513,7 +473,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // CV View Button Action (opens online CV viewer)
   const viewCvBtn = document.getElementById('viewCvBtn') || document.getElementById('downloadCvBtn');
   if (viewCvBtn) {
     viewCvBtn.addEventListener('click', () => {
@@ -521,10 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
-  // =========================================================================
-  // 8. RyHar AI Assistant Chatbot (Floating Widget)
-  // =========================================================================
   const aiFabBtn = document.getElementById('aiFabBtn');
   const aiChatWindow = document.getElementById('aiChatWindow');
   const aiCloseBtn = document.getElementById('aiCloseBtn');
@@ -534,7 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const aiTypingIndicator = document.getElementById('aiTypingIndicator');
   const aiPromptChips = document.querySelectorAll('.ai-prompt-chip');
 
-  // Toggle chat window open/close
   if (aiFabBtn && aiChatWindow) {
     aiFabBtn.addEventListener('click', () => {
       const isOpen = aiChatWindow.classList.contains('open');
@@ -555,7 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle Quick Prompt Chips
   aiPromptChips.forEach(chip => {
     chip.addEventListener('click', () => {
       const query = chip.textContent.trim();
@@ -565,7 +518,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Handle Chat Form Submit
   if (aiChatForm) {
     aiChatForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -580,7 +532,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     const timeStr = `${String(now.getHours()).padStart(2, '0')}.${String(now.getMinutes()).padStart(2, '0')}`;
 
-    // Append user message bubble (outgoing)
     const userMsgEl = document.createElement('div');
     userMsgEl.className = 'chat-message chat-outgoing';
     userMsgEl.innerHTML = `
@@ -592,15 +543,12 @@ document.addEventListener('DOMContentLoaded', () => {
     aiChatBody.appendChild(userMsgEl);
     scrollChatToBottom();
 
-    // Show Typing indicator
     aiTypingIndicator.classList.remove('typing-hidden');
     aiChatBody.appendChild(aiTypingIndicator);
     scrollChatToBottom();
 
-    // Determine smart response
     const botReply = generateRyHarAiResponse(text);
 
-    // Simulate realistic AI typing delay (600ms - 1100ms)
     setTimeout(() => {
       aiTypingIndicator.classList.add('typing-hidden');
 
@@ -634,9 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })[m]);
   }
 
-  /**
-   * Remove Vietnamese tone marks for accent-insensitive search
-   */
+  
   function removeVietnameseTones(str) {
     return (str || '')
       .normalize('NFD')
@@ -645,19 +591,15 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/Đ/g, 'D');
   }
 
-  /**
-   * Smart AI Knowledge Engine based on Phuc's profile (Bilingual with Vietnamese diacritic tolerance)
-   */
+  
   function generateRyHarAiResponse(userInput) {
     const raw = (userInput || '').toLowerCase().trim();
     const norm = removeVietnameseTones(raw);
 
-    // Detect if user is asking in Vietnamese
     const hasVietnameseChars = /[àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]/.test(raw);
     const hasVietnameseWords = /\b(ban|anh|em|minh|chao|xin chao|o dau|sdt|lien he|ky nang|hoc van|du an|kinh nghiem|ho so|bao nhieu|nhu the nao|the nao|khong|gi|sao)\b/.test(norm);
     const isVi = currentLang === 'vi' || hasVietnameseChars || hasVietnameseWords;
 
-    // Helper to check if any keyword exists in raw or normalized query
     const hasAny = (keywords) => {
       return keywords.some(k => {
         const kNorm = removeVietnameseTones(k.toLowerCase());
@@ -665,7 +607,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     };
 
-    // 1. Contact / Liên hệ (e.g. "liên hệ", "contact", "email", "sđt", "ở đâu", "địa chỉ", "inbox")
     if (hasAny([
       'lien he', 'liên hệ', 'lien lac', 'liên lạc', 'contact', 'reach', 'hire',
       'email', 'mail', 'gmail', 'sdt', 'so dien thoai', 'số điện thoại', 'phone', 'dien thoai', 'điện thoại',
@@ -677,7 +618,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : `You can reach Dang Hong Phuc directly via:<br>• 📧 Email: <a href="mailto:phucdnag.dev@gmail.com" style="color:var(--text-main);font-weight:700;text-decoration:underline;">phucdnag.dev@gmail.com</a><br>• 📱 Phone: <a href="tel:0332027551" style="color:var(--text-main);font-weight:700;text-decoration:underline;">+84 332-027-551</a><br>• 📍 Location: <strong>Bac Tu Liem, Hanoi, Vietnam</strong> (Hometown: <strong>Hung Yen</strong>)<br>• 💼 Availability: <strong>Ready for hire (Intern / Fresher Backend Developer)</strong>`;
     }
 
-    // 2. Identity / Who are you? / Bạn là ai? / Giới thiệu
     if (hasAny([
       'who are you', 'who are u', 'who is phuc', 'introduce', 'about', 'who am i',
       'ban la ai', 'bạn là ai', 'ai day', 'ai đấy', 'ai the', 'ai thế', 'ai vay', 'ai vậy',
@@ -688,7 +628,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : `I am the AI Assistant of <strong>Dang Hong Phuc</strong> — a final-year Information Technology student at Hanoi University of Industry (HaUI) specializing in Backend development with <strong>Node.js, Express.js, TypeScript, and MongoDB</strong>. Feel free to ask me anything about Phuc's skills, background, projects, or contact info!`;
     }
 
-    // 3. CV / Resume / Hồ sơ
     if (hasAny([
       'cv', 'resume', 'ho so', 'hồ sơ', 'curriculum vitae', 'profile', 'xem cv', 'tai cv', 'tải cv', 'download cv'
     ])) {
@@ -697,7 +636,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : `You can view and download Dang Hong Phuc's official CV right here:<br>📄 <a href="cv.html" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">View Online CV (Interactive & PDF)</a><br>📥 <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Download PDF CV</a>`;
     }
 
-    // 4. Tech Stack & Skills / Kỹ năng & Công nghệ
     if (hasAny([
       'skill', 'stack', 'technolog', 'backend', 'frontend', 'database', 'framework',
       'ky nang', 'kỹ năng', 'cong nghe', 'công nghệ', 'ngon ngu', 'ngôn ngữ', 'chuyen mon', 'chuyên môn',
@@ -709,28 +647,24 @@ document.addEventListener('DOMContentLoaded', () => {
         : `Phuc's core technical stack includes:<br>• <strong>Backend:</strong> Node.js, Express.js, RESTful API, Socket.IO, JWT, MVC architecture<br>• <strong>Frontend:</strong> ReactJS, Next.js, HTML5, CSS3, Tailwind CSS, JavaScript (ES6+)<br>• <strong>Databases:</strong> MongoDB (Mongoose), MySQL<br>• <strong>Tools & Workflow:</strong> Git, GitLab, GitHub, Postman, npm, Multer, Cloudinary, Nodemailer`;
     }
 
-    // 5. TravelGo Website specifically
     if (hasAny(['travelgo', 'travel', 'tour', 'booking'])) {
       return isVi
         ? `<strong>Website TravelGo (Server Side Rendering)</strong> là hệ thống quản lý và đặt tour du lịch module hóa được phát triển với NodeJS, ExpressJS, MongoDB, Pug (SSR), JWT và Nodemailer. Dự án tích hợp đầy đủ CRUD tour, blog, đơn hàng, mã giảm giá và khôi phục mật khẩu OTP.<br>🔗 <a href="https://gitlab.com/phucdnag/travelgo" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab Repository</a> | <a href="https://travelgo-bx88.onrender.com" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Demo Trực Tiếp</a>`
         : `<strong>TravelGo Website (Server Side Rendering)</strong> is a modular travel booking management system built with NodeJS, ExpressJS, MongoDB, Pug (SSR), JWT, and Nodemailer. It features full CRUD operations for tours, blogs, orders, coupons, and OTP password recovery.<br>🔗 <a href="https://gitlab.com/phucdnag/travelgo" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab Repository</a> | <a href="https://travelgo-bx88.onrender.com" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Live Demo</a>`;
     }
 
-    // 6. TechJobs Website specifically
     if (hasAny(['techjob', 'recruitment', 'tuyen dung', 'tuyển dụng', 'job'])) {
       return isVi
         ? `<strong>Website TechJobs (Client Side Rendering)</strong> là nền tảng tuyển dụng IT xây dựng với RESTful APIs quản lý đăng tin, hồ sơ CV ứng viên, phân quyền đa vai trò bằng JWT và nhắn tin thời gian thực qua Socket.IO.<br>🔗 <a href="https://gitlab.com/phucdnag/techjobs" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab Repository</a> | <a href="https://techjobs-eight.vercel.app" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Demo Web</a> | <a href="https://techjobs-o6il.onrender.com" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">API Endpoint</a>`
         : `<strong>TechJobs Website (Client Side Rendering)</strong> is an IT recruitment platform providing RESTful APIs for recruitment, job posting, online CV management, role-based authorization, and real-time candidate-recruiter chat via Socket.IO.<br>🔗 <a href="https://gitlab.com/phucdnag/techjobs" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab Repository</a> | <a href="https://techjobs-eight.vercel.app" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Live Demo</a> | <a href="https://techjobs-o6il.onrender.com" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">API Endpoint</a>`;
     }
 
-    // 7. General Projects / Dự án / Sản phẩm
     if (hasAny(['project', 'du an', 'dự án', 'san pham', 'sản phẩm', 'work', 'selected work', 'da lam duoc gi', 'làm được gì'])) {
       return isVi
         ? `Phúc có 2 dự án tiêu biểu được phát triển bài bản:<br><br>1. <strong>Website TravelGo (SSR)</strong>: Hệ thống quản lý & đặt tour du lịch với NodeJS, ExpressJS, MongoDB, Pug, JWT, Nodemailer.<br>🔗 <a href="https://gitlab.com/phucdnag/travelgo" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab</a> | <a href="https://travelgo-bx88.onrender.com" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Demo Trực Tiếp</a><br><br>2. <strong>Website TechJobs (CSR)</strong>: Nền tảng tuyển dụng IT xây dựng bằng RESTful API, Socket.IO, TypeScript, Node.js, Express, MongoDB.<br>🔗 <a href="https://gitlab.com/phucdnag/techjobs" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab</a> | <a href="https://techjobs-eight.vercel.app" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Demo Web</a>`
         : `Phuc has built two featured backend-focused projects:<br><br>1. <strong>TravelGo Website (SSR)</strong>: Modular travel booking platform with NodeJS, ExpressJS, MongoDB, Pug, JWT, and Nodemailer.<br>🔗 <a href="https://gitlab.com/phucdnag/travelgo" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab</a> | <a href="https://travelgo-bx88.onrender.com" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Live Demo</a><br><br>2. <strong>TechJobs Website (CSR)</strong>: Real-time IT recruitment platform with RESTful API, Socket.IO, TypeScript, Express, MongoDB.<br>🔗 <a href="https://gitlab.com/phucdnag/techjobs" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">GitLab</a> | <a href="https://techjobs-eight.vercel.app" target="_blank" style="color:var(--text-main);font-weight:700;text-decoration:underline;">Live Demo</a>`;
     }
 
-    // 8. Education & GPA / Học vấn & Trường / Điểm số
     if (hasAny([
       'education', 'degree', 'college', 'university', 'gpa', 'score', 'school', 'birthday', 'birth', 'born',
       'hoc van', 'học vấn', 'truong', 'trường', 'dai hoc', 'đại học', 'haui', 'cong nghiep', 'công nghiệp',
@@ -741,7 +675,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : `Phuc's education and personal background:<br>• 🎓 <strong>University:</strong> Hanoi University of Industry (HaUI)<br>• 📚 <strong>Major:</strong> Information Technology (Final year student, 2023 - 2027)<br>• 🎯 <strong>GPA:</strong> <strong>3.2 / 4.0</strong><br>• 🎂 <strong>Born:</strong> 2005<br>• 📍 <strong>Current Location:</strong> Bac Tu Liem, Hanoi, Vietnam`;
     }
 
-    // 9. Experience & Career Goal / Kinh nghiệm & Định hướng
     if (hasAny([
       'experience', 'intern', 'fresher', 'background', 'goal', 'objective', 'career',
       'kinh nghiem', 'kinh nghiệm', 'thuc tap', 'thực tập', 'muc tieu', 'mục tiêu', 'dinh huong', 'định hướng'
@@ -751,7 +684,6 @@ document.addEventListener('DOMContentLoaded', () => {
         : `Phuc is a passionate Backend Developer with practical hands-on experience in system design, RESTful APIs, JWT authentication, and MongoDB database design through projects <strong>TravelGo</strong> and <strong>TechJobs</strong>. He is actively seeking an <strong>Intern / Fresher Backend Developer</strong> role to contribute and grow professionally.`;
     }
 
-    // 10. Greetings / Lời chào
     if (hasAny([
       'hello', 'hi', 'hey', 'good morning', 'good afternoon', 'good evening',
       'chao', 'chào', 'xin chao', 'xin chào', 'alo', 'chào bạn', 'chao ban'
@@ -761,22 +693,17 @@ document.addEventListener('DOMContentLoaded', () => {
         : `Hello there! Wonderful to connect with you. What would you like to explore regarding Dang Hong Phuc's technical skills, projects, or background?`;
     }
 
-    // 11. Thanks / Cảm ơn
     if (hasAny(['thank', 'thanks', 'cam on', 'cảm ơn', 'tks', 'ok', 'oke', 'tuyet', 'tuyệt', 'great'])) {
       return isVi
         ? `Rất vui được hỗ trợ bạn! Nếu bạn cần thêm bất kỳ thông tin nào về Đặng Hồng Phúc hoặc muốn trao đổi cơ hội hợp tác, bạn cứ nhắn tiếp nhé.`
         : `You are very welcome! If you need any further information about Dang Hong Phuc or wish to discuss an opportunity, feel free to ask anytime.`;
     }
 
-    // 12. Default / Fallback
     return isVi
       ? `Cảm ơn bạn đã nhắn tin! Bạn có thể hỏi tôi chi tiết về:<br>• 📬 <strong>Liên hệ:</strong> Email, số điện thoại, địa chỉ<br>• ⚡ <strong>Kỹ năng:</strong> Node.js, Express, TypeScript, MongoDB...<br>• 💼 <strong>Dự án:</strong> TravelGo (SSR) & TechJobs (CSR)<br>• 🎓 <strong>Học vấn:</strong> HaUI & GPA 3.2<br>• 📄 <strong>CV:</strong> Xem và tải CV bản PDF`
       : `Thank you for reaching out! You can explore details about:<br>• 📬 <strong>Contact:</strong> Email, phone, location<br>• ⚡ <strong>Skills:</strong> Node.js, Express, TypeScript, MongoDB...<br>• 💼 <strong>Projects:</strong> TravelGo (SSR) & TechJobs (CSR)<br>• 🎓 <strong>Education:</strong> HaUI & GPA 3.2<br>• 📄 <strong>CV:</strong> View online and download PDF`;
   }
 
-  // =========================================================================
-  // 9. Toast Notification System
-  // =========================================================================
   function showToast(message) {
     const toastContainer = document.getElementById('toastContainer');
     if (!toastContainer) return;
@@ -797,7 +724,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3200);
   }
 
-  // Initialize Language on page load
   applyLanguage(currentLang, false);
 
 });

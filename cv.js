@@ -1,14 +1,6 @@
-/**
- * ONLINE CV VIEWER JAVASCRIPT - DANG HONG PHUC
- * Handles PDF rendering with PDF.js, Zooming, Tabs, Theme Sync & Actions
- */
-
 document.addEventListener('DOMContentLoaded', () => {
   const PDF_URL = 'assets/Dang-Hong-Phuc-CV.pdf';
 
-  // -------------------------------------------------------------------------
-  // 1. Theme Management (Synchronized with Portfolio)
-  // -------------------------------------------------------------------------
   const themeToggle = document.getElementById('themeToggle');
   const htmlRoot = document.documentElement;
 
@@ -26,9 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // -------------------------------------------------------------------------
-  // 1b. Language Switcher & Bilingual Support (Synchronized with Portfolio)
-  // -------------------------------------------------------------------------
   const cvTranslations = {
     en: {
       cv_back: 'Portfolio',
@@ -150,12 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Apply saved language initially
   applyLanguage(currentLang, false);
 
-  // -------------------------------------------------------------------------
-  // 2. View Mode Tabs (PDF View vs Interactive Web View)
-  // -------------------------------------------------------------------------
   const tabPdf = document.getElementById('tabPdf');
   const tabWeb = document.getElementById('tabWeb');
   const pdfView = document.getElementById('pdfView');
@@ -184,9 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
     tabWeb.addEventListener('click', () => switchTab('web'));
   }
 
-  // -------------------------------------------------------------------------
-  // 3. PDF.js Document Rendering & Zoom Engine
-  // -------------------------------------------------------------------------
   const pdfCanvas = document.getElementById('pdfCanvas');
   const loadingOverlay = document.getElementById('loadingOverlay');
   const fallbackContainer = document.getElementById('fallbackContainer');
@@ -198,17 +180,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let pdfDoc = null;
   let pageNum = 1;
-  let scale = 1.25; // default comfortable reading scale
+  let scale = 1.25;
   let isRendering = false;
   let pageRenderingQueue = null;
 
-  // Initialize PDF.js worker
   if (window.pdfjsLib) {
     window.pdfjsLib.GlobalWorkerOptions.workerSrc =
       'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
   }
 
-  // Load PDF document
   async function loadPdf() {
     if (!window.pdfjsLib) {
       enableFallback();
@@ -219,7 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const loadingTask = window.pdfjsLib.getDocument(PDF_URL);
       pdfDoc = await loadingTask.promise;
 
-      // Adjust default scale for mobile screens
       if (window.innerWidth < 768) {
         scale = 0.85;
       }
@@ -260,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const ctx = pdfCanvas.getContext('2d');
       const dpr = window.devicePixelRatio || 1;
 
-      // Calculate viewport at current scale
       const viewport = page.getViewport({ scale: scale * dpr });
 
       pdfCanvas.width = viewport.width;
@@ -286,7 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Zoom Handlers
   if (zoomInBtn) {
     zoomInBtn.addEventListener('click', () => {
       if (scale < 2.5) {
@@ -315,15 +292,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (zoomFitBtn) {
     zoomFitBtn.addEventListener('click', () => {
       const containerWidth = Math.min(window.innerWidth - 48, 920);
-      // Standard A4 aspect ratio width ~ 595pt
       scale = containerWidth / 680;
       renderCurrentPage();
     });
   }
 
-  // -------------------------------------------------------------------------
-  // 4. Download & Print Actions
-  // -------------------------------------------------------------------------
   const downloadBtns = document.querySelectorAll('.cv-download-trigger');
   downloadBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -335,9 +308,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const printBtn = document.getElementById('printBtn');
   if (printBtn) {
     printBtn.addEventListener('click', () => {
-      // If currently on PDF tab, switch to Web View or print directly
       if (!tabWeb.classList.contains('active')) {
-        // Switch to web view for clean print formatting
         switchTab('web');
         setTimeout(() => {
           window.print();
@@ -348,18 +319,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Keyboard Shortcuts
   window.addEventListener('keydown', (e) => {
-    // Escape -> Return to portfolio
     if (e.key === 'Escape') {
       window.location.href = 'index.html';
     }
-    // Ctrl/Cmd + P -> Print
     if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
       e.preventDefault();
       if (printBtn) printBtn.click();
     }
-    // Ctrl/Cmd + Plus / Minus
     if ((e.ctrlKey || e.metaKey) && (e.key === '=' || e.key === '+')) {
       e.preventDefault();
       if (zoomInBtn) zoomInBtn.click();
@@ -370,9 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // -------------------------------------------------------------------------
-  // 5. Toast Notification System
-  // -------------------------------------------------------------------------
   function showToast(message) {
     let container = document.getElementById('toastContainer');
     if (!container) {
@@ -395,6 +359,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // Start PDF rendering
   loadPdf();
 });

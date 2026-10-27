@@ -11,22 +11,18 @@
     content="Đặng Hồng Phúc CV, Dang Hong Phuc CV, CV Backend Developer, PhucDnag Resume, Node.js, Express.js, TypeScript, MongoDB, HaUI, Online CV Viewer">
   <meta name="author" content="Đặng Hồng Phúc (Dang Hong Phuc)">
 
-  <!-- Robots & Search Engine Indexing -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="googlebot" content="index, follow">
   <meta name="bingbot" content="index, follow">
 
-  <!-- Canonical & Alternate Language Links -->
   <link rel="canonical" href="https://phucdnag.github.io/portfolio/cv.html">
   <link rel="alternate" hreflang="vi" href="https://phucdnag.github.io/portfolio/cv.html">
   <link rel="alternate" hreflang="en" href="https://phucdnag.github.io/portfolio/cv.html">
   <link rel="alternate" hreflang="x-default" href="https://phucdnag.github.io/portfolio/cv.html">
 
-  <!-- Theme Color for Mobile Browsers -->
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Đặng Hồng Phúc — Curriculum Vitae (CV)">
   <meta property="og:description"
@@ -42,32 +38,28 @@
   <meta property="og:image:height" content="800">
   <meta property="og:image:alt" content="Đặng Hồng Phúc - CV">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Đặng Hồng Phúc — Curriculum Vitae (CV)">
   <meta name="twitter:description"
     content="Online CV of Dang Hong Phuc, Backend Developer Intern. View online or download PDF.">
   <meta name="twitter:image" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="./assets/avatar.jpg">
-  <link rel="apple-touch-icon" href="./assets/avatar.jpg">
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
 
-  <!-- Portfolio Design System & Dedicated CV Styles -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="cv.css">
 
-  <!-- PDF.js from Cloudflare CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
-  <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -118,11 +110,9 @@
 
 <body class="cv-body">
 
-  <!-- ==================== 1. GLASSMORPHIС HEADER ==================== -->
   <header class="cv-header">
     <div class="cv-header-container">
 
-      <!-- Left: Back link & Profile info -->
       <div class="cv-header-left">
         <a href="index.html" class="cv-back-btn" title="Back to Portfolio">
           <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none">
@@ -148,7 +138,6 @@
         </span>
       </div>
 
-      <!-- Center: View Mode Switcher -->
       <div class="cv-header-center">
         <div class="cv-mode-tabs" role="tablist" aria-label="CV View Mode">
           <button id="tabPdf" class="cv-tab-btn active" role="tab" aria-selected="true" title="View formatted PDF">
@@ -172,9 +161,7 @@
         </div>
       </div>
 
-      <!-- Right: Action Buttons (Download, Print, Direct, Theme, Language) -->
       <div class="cv-header-right">
-        <!-- Download PDF Button -->
         <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf" id="downloadPdfBtn"
           class="cv-btn cv-btn-primary cv-download-trigger" title="Download CV (PDF)">
           <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none">
@@ -185,7 +172,6 @@
           <span data-i18n="cv_download">Download CV</span>
         </a>
 
-        <!-- Print Button -->
         <button id="printBtn" class="cv-btn cv-btn-outline cv-icon-btn hide-mobile" title="Print CV (Ctrl + P)">
           <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none">
             <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -194,7 +180,6 @@
           </svg>
         </button>
 
-        <!-- Direct PDF Link in New Tab -->
         <a href="assets/Dang-Hong-Phuc-CV.pdf" target="_blank" rel="noopener noreferrer"
           class="cv-btn cv-btn-outline cv-icon-btn hide-mobile" title="Open PDF in new tab">
           <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none">
@@ -204,7 +189,6 @@
           </svg>
         </a>
 
-        <!-- Contact Email Link -->
         <a href="mailto:phucdnag.dev@gmail.com?subject=Inquiry%20regarding%20Dang%20Hong%20Phuc%20CV"
           class="cv-btn cv-btn-outline cv-icon-btn" title="Contact Phuc via Email">
           <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none">
@@ -213,7 +197,6 @@
           </svg>
         </a>
 
-        <!-- Theme Toggle -->
         <button id="themeToggle" class="cv-btn cv-btn-outline cv-icon-btn" title="Toggle Theme"
           aria-label="Toggle Theme">
           <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
@@ -234,7 +217,6 @@
           </svg>
         </button>
 
-        <!-- Language Switcher -->
         <div class="lang-switcher" role="group" aria-label="Language Switcher">
           <button class="lang-btn active" data-lang-btn="en" aria-label="English">EN</button>
           <span class="lang-divider">/</span>
@@ -245,7 +227,6 @@
     </div>
   </header>
 
-  <!-- ==================== 2. TOOLBAR (PDF Zoom & Info) ==================== -->
   <div class="cv-toolbar" id="cvToolbar">
     <div class="cv-toolbar-group">
       <button id="zoomOutBtn" class="cv-tool-btn" title="Zoom Out (-)">
@@ -289,33 +270,26 @@
     </div>
   </div>
 
-  <!-- ==================== 3. MAIN VIEWER CONTENT ==================== -->
   <main class="cv-main">
 
-    <!-- View Mode A: High-Def PDF Canvas Document View -->
     <section id="pdfView" class="cv-view-section active">
-      <!-- Loading Spinner -->
       <div id="loadingOverlay" class="cv-loading-overlay">
         <div class="cv-spinner"></div>
         <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="cv_loading">Rendering Dang Hong Phuc's CV...</p>
       </div>
 
-      <!-- High-DPI Canvas Card -->
       <div class="cv-pdf-card" id="pdfCard">
         <canvas id="pdfCanvas"></canvas>
       </div>
 
-      <!-- Fallback Container (for legacy browsers) -->
       <div id="fallbackContainer" class="cv-fallback-container">
         <iframe src="assets/Dang-Hong-Phuc-CV.pdf#toolbar=1" class="cv-fallback-iframe" title="CV Document"></iframe>
       </div>
     </section>
 
-    <!-- View Mode B: Interactive Web Document View -->
     <section id="webView" class="cv-view-section">
       <article class="cv-web-document">
 
-        <!-- Header Profile -->
         <header class="cv-doc-header">
           <div class="cv-doc-title-row">
             <div>
@@ -371,7 +345,6 @@
           </div>
         </header>
 
-        <!-- Summary -->
         <section class="cv-doc-section">
           <h3 class="cv-section-title" data-i18n="cv_sec_summary">SUMMARY</h3>
           <p class="cv-summary-text" data-i18n="cv_summary_text">
@@ -385,7 +358,6 @@
           </p>
         </section>
 
-        <!-- Education -->
         <section class="cv-doc-section">
           <h3 class="cv-section-title" data-i18n="cv_sec_edu">EDUCATION</h3>
           <div class="cv-edu-item">
@@ -397,7 +369,6 @@
           </div>
         </section>
 
-        <!-- Technical Skills -->
         <section class="cv-doc-section">
           <h3 class="cv-section-title" data-i18n="cv_sec_skills">TECHNICAL SKILLS</h3>
           <div class="cv-skills-list">
@@ -428,11 +399,9 @@
           </div>
         </section>
 
-        <!-- Projects -->
         <section class="cv-doc-section">
           <h3 class="cv-section-title" data-i18n="cv_sec_projects">PROJECTS</h3>
 
-          <!-- Project 1: TravelGo -->
           <div class="cv-project-card">
             <div class="cv-proj-header">
               <h4 class="cv-proj-name">TravelGo Website (Server Side Rendering)</h4>
@@ -474,7 +443,6 @@
             </ul>
           </div>
 
-          <!-- Project 2: TechJobs -->
           <div class="cv-project-card">
             <div class="cv-proj-header">
               <h4 class="cv-proj-name">TechJobs Website (Client Side Rendering)</h4>
@@ -530,7 +498,6 @@
 
   </main>
 
-  <!-- ==================== 4. MOBILE STICKY ACTION BAR ==================== -->
   <aside class="cv-mobile-bar">
     <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf" class="btn btn-primary cv-download-trigger">
       <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none">
@@ -548,10 +515,8 @@
     </a>
   </aside>
 
-  <!-- Toast Container -->
   <div id="toastContainer" class="toast-container"></div>
 
-  <!-- Page Logic Script -->
   <script src="cv.js"></script>
 </body>
 

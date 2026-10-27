@@ -1,9 +1,3 @@
-/* ==========================================================================
-   ONLINE CV VIEWER STYLESHEET - DANG HONG PHUC
-   Supports dual-theme, PDF canvas rendering, interactive layout, responsive UI
-   ========================================================================== */
-
-/* Page Base */
 .cv-body {
   margin: 0;
   padding: 0;
@@ -16,9 +10,6 @@
   overflow-x: hidden;
 }
 
-/* --------------------------------------------------------------------------
-   1. Glassmorphic Navigation Bar
-   -------------------------------------------------------------------------- */
 .cv-header {
   position: sticky;
   top: 0;
@@ -40,7 +31,6 @@
   gap: 1rem;
 }
 
-/* Left Group */
 .cv-header-left {
   display: flex;
   align-items: center;
@@ -134,7 +124,6 @@
   box-shadow: 0 0 6px var(--online-green);
 }
 
-/* Center Mode Switcher Tabs */
 .cv-header-center {
   display: flex;
   align-items: center;
@@ -175,7 +164,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-/* Right Actions Group */
 .cv-header-right {
   display: flex;
   align-items: center;
@@ -227,9 +215,6 @@
   border-radius: 50%;
 }
 
-/* --------------------------------------------------------------------------
-   2. Secondary Toolbar (PDF Zoom & Controls)
-   -------------------------------------------------------------------------- */
 .cv-toolbar {
   background: var(--bg-surface);
   border-bottom: 1px solid var(--border-light);
@@ -282,9 +267,6 @@
   font-weight: 500;
 }
 
-/* --------------------------------------------------------------------------
-   3. Main Viewer Canvas Area
-   -------------------------------------------------------------------------- */
 .cv-main {
   flex: 1;
   display: flex;
@@ -294,7 +276,6 @@
   position: relative;
 }
 
-/* PDF Container */
 .cv-view-section {
   width: 100%;
   max-width: 950px;
@@ -328,7 +309,6 @@
   margin: 0 auto;
 }
 
-/* Loading & Fallback states */
 .cv-loading-overlay {
   display: flex;
   flex-direction: column;
@@ -367,9 +347,6 @@
   border: none;
 }
 
-/* --------------------------------------------------------------------------
-   4. Interactive Web View Layout (Print-Ready & Mobile-Friendly)
-   -------------------------------------------------------------------------- */
 .cv-web-document {
   width: 100%;
   max-width: 860px;
@@ -381,7 +358,6 @@
   box-sizing: border-box;
 }
 
-/* Header */
 .cv-doc-header {
   border-bottom: 2px solid var(--border-subtle);
   padding-bottom: 1.5rem;
@@ -439,7 +415,6 @@
   flex-shrink: 0;
 }
 
-/* Sections */
 .cv-doc-section {
   margin-bottom: 1.75rem;
 }
@@ -463,7 +438,6 @@
   margin: 0;
 }
 
-/* Education */
 .cv-edu-item {
   display: flex;
   justify-content: space-between;
@@ -491,7 +465,6 @@
   color: var(--text-secondary);
 }
 
-/* Skills Grid */
 .cv-skills-list {
   display: flex;
   flex-direction: column;
@@ -515,7 +488,6 @@
   color: var(--text-secondary);
 }
 
-/* Projects */
 .cv-project-card {
   margin-bottom: 1.5rem;
   padding-bottom: 1.25rem;
@@ -595,9 +567,6 @@
   margin-bottom: 0.35rem;
 }
 
-/* --------------------------------------------------------------------------
-   5. Mobile Sticky Bottom Bar
-   -------------------------------------------------------------------------- */
 .cv-mobile-bar {
   display: none;
   position: fixed;
@@ -617,9 +586,6 @@
   flex: 1;
 }
 
-/* --------------------------------------------------------------------------
-   6. Responsive Breakpoints
-   -------------------------------------------------------------------------- */
 @media (max-width: 900px) {
   .cv-skill-row {
     grid-template-columns: 1fr;
@@ -655,9 +621,6 @@
   }
 }
 
-/* --------------------------------------------------------------------------
-   7. Print Optimization
-   -------------------------------------------------------------------------- */
 @media print {
   .cv-header,
   .cv-toolbar,
