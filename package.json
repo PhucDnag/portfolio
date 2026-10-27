@@ -1,0 +1,19 @@
+{
+  "name": "phuc-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of Dang Hong Phuc - Web Developer",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve . -p 3000",
+    "start": "npx -y serve . -p 3000"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "react",
+    "nodejs",
+    "web"
+  ],
+  "author": "Dang Hong Phuc",
+  "license": "MIT"
+}

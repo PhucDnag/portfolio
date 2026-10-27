@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dang Hong Phuc — Curriculum Vitae | Online CV Viewer</title>
+  <meta name="description"
+    content="Online CV of Dang Hong Phuc, Intern Backend Developer specialized in Node.js, Express.js, TypeScript, and MongoDB. View and download PDF CV online.">
+  <meta name="keywords"
+    content="Dang Hong Phuc, CV, Resume, Backend Developer, Node.js, Express.js, TypeScript, MongoDB">
+  <meta name="author" content="Dang Hong Phuc">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dang Hong Phuc — Curriculum Vitae">
+  <meta property="og:description" content="View online CV or download official PDF resume of Dang Hong Phuc.">
+  <meta property="og:image" content="./assets/avatar.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="./assets/avatar.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Portfolio Design System & Dedicated CV Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="cv.css">
+
+  <!-- PDF.js from Cloudflare CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+
+<body class="cv-body">
+
+  <!-- ==================== 1. GLASSMORPHIС HEADER ==================== -->
+  <header class="cv-header">
+    <div class="cv-header-container">
+
+      <!-- Left: Back link & Profile info -->
+      <div class="cv-header-left">
+        <a href="index.html" class="cv-back-btn" title="Back to Portfolio">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Portfolio</span>
+        </a>
+
+        <div class="cv-nav-divider"></div>
+
+        <div class="cv-nav-profile">
+          <img src="./assets/avatar.jpg" alt="Dang Hong Phuc" class="cv-nav-avatar">
+          <div class="cv-nav-info">
+            <h1 class="cv-nav-name">Đặng Hồng Phúc</h1>
+            <span class="cv-nav-role">Backend Developer</span>
+          </div>
+        </div>
+
+        <span class="cv-status-pill">
+          <span class="cv-status-dot"></span>
+          Available for Hire
+        </span>
+      </div>
+
+      <!-- Center: View Mode Switcher -->
+      <div class="cv-header-center">
+        <div class="cv-mode-tabs" role="tablist" aria-label="CV View Mode">
+          <button id="tabPdf" class="cv-tab-btn active" role="tab" aria-selected="true" title="View formatted PDF">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>PDF View</span>
+          </button>
+          <button id="tabWeb" class="cv-tab-btn" role="tab" aria-selected="false" title="View interactive web CV">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>Web View</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Right: Action Buttons (Download, Print, Direct, Theme) -->
+      <div class="cv-header-right">
+        <!-- Download PDF Button -->
+        <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf" id="downloadPdfBtn"
+          class="cv-btn cv-btn-primary cv-download-trigger" title="Download CV (PDF)">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.2" fill="none">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download CV</span>
+        </a>
+
+        <!-- Print Button -->
+        <button id="printBtn" class="cv-btn cv-btn-outline cv-icon-btn hide-mobile" title="Print CV (Ctrl + P)">
+          <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+        </button>
+
+        <!-- Direct PDF Link in New Tab -->
+        <a href="assets/Dang-Hong-Phuc-CV.pdf" target="_blank" rel="noopener noreferrer"
+          class="cv-btn cv-btn-outline cv-icon-btn hide-mobile" title="Open PDF in new tab">
+          <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+
+        <!-- Contact Email Link -->
+        <a href="mailto:phucdnag.dev@gmail.com?subject=Inquiry%20regarding%20Dang%20Hong%20Phuc%20CV"
+          class="cv-btn cv-btn-outline cv-icon-btn" title="Contact Phuc via Email">
+          <svg viewBox="0 0 24 24" width="17" height="17" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggle" class="cv-btn cv-btn-outline cv-icon-btn" title="Toggle Theme"
+          aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+            fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2"
+            fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== 2. TOOLBAR (PDF Zoom & Info) ==================== -->
+  <div class="cv-toolbar" id="cvToolbar">
+    <div class="cv-toolbar-group">
+      <button id="zoomOutBtn" class="cv-tool-btn" title="Zoom Out (-)">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      </button>
+
+      <span id="zoomText" class="cv-zoom-text">125%</span>
+
+      <button id="zoomInBtn" class="cv-tool-btn" title="Zoom In (+)">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          <line x1="11" y1="8" x2="11" y2="14"></line>
+          <line x1="8" y1="11" x2="14" y2="11"></line>
+        </svg>
+      </button>
+
+      <button id="zoomFitBtn" class="cv-tool-btn" title="Fit to Width">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <polyline points="9 21 3 21 3 15"></polyline>
+          <line x1="21" y1="3" x2="14" y2="10"></line>
+          <line x1="3" y1="21" x2="10" y2="14"></line>
+        </svg>
+      </button>
+
+      <button id="zoomResetBtn" class="cv-tool-btn" title="Reset Zoom (100%)">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+          <polyline points="1 4 1 10 7 10"></polyline>
+          <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cv-page-info">
+      <span>Page 1 of 1</span>
+    </div>
+  </div>
+
+  <!-- ==================== 3. MAIN VIEWER CONTENT ==================== -->
+  <main class="cv-main">
+
+    <!-- View Mode A: High-Def PDF Canvas Document View -->
+    <section id="pdfView" class="cv-view-section active">
+      <!-- Loading Spinner -->
+      <div id="loadingOverlay" class="cv-loading-overlay">
+        <div class="cv-spinner"></div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Rendering Dang Hong Phuc's CV...</p>
+      </div>
+
+      <!-- High-DPI Canvas Card -->
+      <div class="cv-pdf-card" id="pdfCard">
+        <canvas id="pdfCanvas"></canvas>
+      </div>
+
+      <!-- Fallback Container (for legacy browsers) -->
+      <div id="fallbackContainer" class="cv-fallback-container">
+        <iframe src="assets/Dang-Hong-Phuc-CV.pdf#toolbar=1" class="cv-fallback-iframe" title="CV Document"></iframe>
+      </div>
+    </section>
+
+    <!-- View Mode B: Interactive Web Document View -->
+    <section id="webView" class="cv-view-section">
+      <article class="cv-web-document">
+
+        <!-- Header Profile -->
+        <header class="cv-doc-header">
+          <div class="cv-doc-title-row">
+            <div>
+              <h2 class="cv-doc-name">DANG HONG PHUC</h2>
+              <p class="cv-doc-role">Backend Developer</p>
+            </div>
+            <div>
+              <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf"
+                class="btn btn-primary cv-download-trigger">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Download PDF</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="cv-doc-contacts">
+            <a href="tel:0332027551" class="cv-doc-contact-item">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+              <span>0332027551</span>
+            </a>
+
+            <a href="mailto:phucdnag.dev@gmail.com" class="cv-doc-contact-item">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>phucdnag.dev@gmail.com</span>
+            </a>
+
+            <span class="cv-doc-contact-item">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Bac Tu Liem, Ha Noi</span>
+            </span>
+
+            <span class="cv-doc-contact-item">
+              <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <span>Born: 2005</span>
+            </span>
+          </div>
+        </header>
+
+        <!-- Summary -->
+        <section class="cv-doc-section">
+          <h3 class="cv-section-title">SUMMARY</h3>
+          <p class="cv-summary-text">
+            Backend Developer Intern with hands-on experience in <strong>Node.js, Express.js, TypeScript, and
+              MongoDB</strong>, specializing
+            in building RESTful APIs and scalable backend applications. Familiar with JWT authentication, database
+            design, and
+            MVC architecture. Passionate about writing clean, maintainable code and eager to contribute to real-world
+            backend
+            projects while continuously improving technical skills.
+          </p>
+        </section>
+
+        <!-- Education -->
+        <section class="cv-doc-section">
+          <h3 class="cv-section-title">EDUCATION</h3>
+          <div class="cv-edu-item">
+            <span class="cv-edu-school">Hanoi University of Industry (HaUI)</span>
+            <span class="cv-edu-time">2023 - 2027 (Expected)</span>
+            <div class="cv-edu-meta">
+              Major: <strong>Information Technology</strong> (Final Year Student) • GPA: <strong>3.2 / 4.0</strong>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="cv-doc-section">
+          <h3 class="cv-section-title">TECHNICAL SKILLS</h3>
+          <div class="cv-skills-list">
+            <div class="cv-skill-row">
+              <span class="cv-skill-label">Languages:</span>
+              <span class="cv-skill-value">JavaScript (ES6+), TypeScript, HTML/CSS</span>
+            </div>
+            <div class="cv-skill-row">
+              <span class="cv-skill-label">Backend:</span>
+              <span class="cv-skill-value">Node.js, Express.js, RESTful API, JWT Authentication, Socket.IO</span>
+            </div>
+            <div class="cv-skill-row">
+              <span class="cv-skill-label">Frontend:</span>
+              <span class="cv-skill-value">ReactJS, NextJS, Tailwind CSS, Bootstrap</span>
+            </div>
+            <div class="cv-skill-row">
+              <span class="cv-skill-label">Databases:</span>
+              <span class="cv-skill-value">MongoDB (Mongoose), MySQL</span>
+            </div>
+            <div class="cv-skill-row">
+              <span class="cv-skill-label">Tools & Process:</span>
+              <span class="cv-skill-value">Git, GitHub / GitLab, Postman, Nodemailer</span>
+            </div>
+            <div class="cv-skill-row">
+              <span class="cv-skill-label">Soft Skills:</span>
+              <span class="cv-skill-value">Time Management, Self-study, and Research</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="cv-doc-section">
+          <h3 class="cv-section-title">PROJECTS</h3>
+
+          <!-- Project 1: TravelGo -->
+          <div class="cv-project-card">
+            <div class="cv-proj-header">
+              <h4 class="cv-proj-name">TravelGo Website (Server Side Rendering)</h4>
+              <span class="cv-proj-role">Backend Developer (Personal Project)</span>
+            </div>
+            <div class="cv-proj-links">
+              <a href="https://gitlab.com/phucdnag/travelgo" target="_blank" rel="noopener noreferrer"
+                class="cv-proj-link-item">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                GitLab: travelgo
+              </a>
+              <span>•</span>
+              <a href="https://travelgo-bx88.onrender.com" target="_blank" rel="noopener noreferrer"
+                class="cv-proj-link-item">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Live Demo: travelgo-bx88.onrender.com
+              </a>
+            </div>
+            <div class="cv-proj-tech">
+              <strong>Tech Stack:</strong> NodeJS, ExpressJS, MongoDB & Mongoose, Pug, JWT Authentication, Cloudinary &
+              Multer, BcryptJS, Nodemailer
+            </div>
+            <ul class="cv-proj-features">
+              <li>Built a modular backend for a travel booking management system with CRUD operations for tours, blogs,
+                categories, orders, coupons, and contacts.</li>
+              <li>Implemented JWT authentication, role-based access control, and secure password hashing using bcrypt.
+              </li>
+              <li>Developed OTP-based password recovery and email notification using Nodemailer.</li>
+              <li>Implemented pagination, filtering, searching, bulk operations, and dashboard analytics for efficient
+                data management.</li>
+            </ul>
+          </div>
+
+          <!-- Project 2: TechJobs -->
+          <div class="cv-project-card">
+            <div class="cv-proj-header">
+              <h4 class="cv-proj-name">TechJobs Website (Client Side Rendering)</h4>
+              <span class="cv-proj-role">Backend Developer (Personal Project)</span>
+            </div>
+            <div class="cv-proj-links">
+              <a href="https://gitlab.com/phucdnag/techjobs" target="_blank" rel="noopener noreferrer"
+                class="cv-proj-link-item">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                  <path
+                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                  </path>
+                </svg>
+                GitLab: techjobs
+              </a>
+              <span>•</span>
+              <a href="https://techjobs-eight.vercel.app" target="_blank" rel="noopener noreferrer"
+                class="cv-proj-link-item">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Demo: techjobs-eight.vercel.app
+              </a>
+              <span>•</span>
+              <a href="https://techjobs-o6il.onrender.com" target="_blank" rel="noopener noreferrer"
+                class="cv-proj-link-item">
+                <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+                API: techjobs-o6il.onrender.com
+              </a>
+            </div>
+            <div class="cv-proj-tech">
+              <strong>Tech Stack:</strong> RESTful API, Socket.IO, Node.js, Express.js, TypeScript, MongoDB, Mongoose,
+              JWT Authentication, Cloudinary
+            </div>
+            <ul class="cv-proj-features">
+              <li>Developed RESTful APIs for recruitment, job posting, and CV management.</li>
+              <li>Implemented JWT-based authentication with role-based authorization.</li>
+              <li>Built job search, filtering, pagination, and online application features.</li>
+              <li>Integrated Socket.IO to enable real-time messaging between recruiters and candidates.</li>
+            </ul>
+          </div>
+        </section>
+
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ==================== 4. MOBILE STICKY ACTION BAR ==================== -->
+  <aside class="cv-mobile-bar">
+    <a href="assets/Dang-Hong-Phuc-CV.pdf" download="Dang-Hong-Phuc-CV.pdf" class="btn btn-primary cv-download-trigger">
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.2" fill="none">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+      <span>Download CV (PDF)</span>
+    </a>
+    <a href="mailto:phucdnag.dev@gmail.com" class="btn btn-outline" title="Email Phuc">
+      <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </a>
+  </aside>
+
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Page Logic Script -->
+  <script src="cv.js"></script>
+</body>
+
+</html>
