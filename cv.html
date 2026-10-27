@@ -4,21 +4,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dang Hong Phuc — Curriculum Vitae | Online CV Viewer</title>
+  <title>Đặng Hồng Phúc — Curriculum Vitae (CV) | Online CV Viewer & PDF</title>
   <meta name="description"
-    content="Online CV of Dang Hong Phuc, Intern Backend Developer specialized in Node.js, Express.js, TypeScript, and MongoDB. View and download PDF CV online.">
+    content="Xem hồ sơ CV trực tuyến hoặc tải bản PDF của Đặng Hồng Phúc (Dang Hong Phuc) - Thực tập sinh Backend Developer chuyên Node.js, Express.js, TypeScript, MongoDB, Đại học Công nghiệp Hà Nội (HaUI).">
   <meta name="keywords"
-    content="Dang Hong Phuc, CV, Resume, Backend Developer, Node.js, Express.js, TypeScript, MongoDB">
-  <meta name="author" content="Dang Hong Phuc">
+    content="Đặng Hồng Phúc CV, Dang Hong Phuc CV, CV Backend Developer, PhucDnag Resume, Node.js, Express.js, TypeScript, MongoDB, HaUI, Online CV Viewer">
+  <meta name="author" content="Đặng Hồng Phúc (Dang Hong Phuc)">
+
+  <!-- Robots & Search Engine Indexing -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+
+  <!-- Canonical & Alternate Language Links -->
+  <link rel="canonical" href="https://phucdnag.github.io/portfolio/cv.html">
+  <link rel="alternate" hreflang="vi" href="https://phucdnag.github.io/portfolio/cv.html">
+  <link rel="alternate" hreflang="en" href="https://phucdnag.github.io/portfolio/cv.html">
+  <link rel="alternate" hreflang="x-default" href="https://phucdnag.github.io/portfolio/cv.html">
+
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Dang Hong Phuc — Curriculum Vitae">
-  <meta property="og:description" content="View online CV or download official PDF resume of Dang Hong Phuc.">
-  <meta property="og:image" content="./assets/avatar.jpg">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Đặng Hồng Phúc — Curriculum Vitae (CV)">
+  <meta property="og:description"
+    content="Xem hồ sơ CV trực tuyến hoặc tải bản PDF của Đặng Hồng Phúc - Backend Developer Intern (Node.js, Express.js, TypeScript, MongoDB).">
+  <meta property="og:url" content="https://phucdnag.github.io/portfolio/cv.html">
+  <meta property="og:site_name" content="Đặng Hồng Phúc Portfolio">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
+  <meta property="og:image:secure_url" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="Đặng Hồng Phúc - CV">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Đặng Hồng Phúc — Curriculum Vitae (CV)">
+  <meta name="twitter:description"
+    content="Online CV of Dang Hong Phuc, Backend Developer Intern. View online or download PDF.">
+  <meta name="twitter:image" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="./assets/avatar.jpg">
+  <link rel="apple-touch-icon" href="./assets/avatar.jpg">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +66,54 @@
 
   <!-- PDF.js from Cloudflare CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://phucdnag.github.io/portfolio/#person",
+        "name": "Đặng Hồng Phúc",
+        "alternateName": ["Dang Hong Phuc", "PhucDnag"],
+        "jobTitle": "Backend Developer",
+        "email": "mailto:phucdnag.dev@gmail.com",
+        "telephone": "+84332027551",
+        "image": "https://phucdnag.github.io/portfolio/assets/avatar.jpg",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Hanoi University of Industry (HaUI)"
+        },
+        "sameAs": [
+          "https://github.com/PhucDnag",
+          "https://gitlab.com/phucdnag",
+          "https://www.linkedin.com/in/phucdnag/"
+        ],
+        "knowsAbout": [
+          "Node.js",
+          "Express.js",
+          "TypeScript",
+          "MongoDB",
+          "Mongoose",
+          "RESTful API",
+          "JWT Authentication",
+          "Socket.IO"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://phucdnag.github.io/portfolio/cv.html#webpage",
+        "url": "https://phucdnag.github.io/portfolio/cv.html",
+        "name": "Đặng Hồng Phúc — Curriculum Vitae (CV)",
+        "about": {
+          "@id": "https://phucdnag.github.io/portfolio/#person"
+        },
+        "inLanguage": ["vi", "en"]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="cv-body">
@@ -41,7 +122,6 @@
   <header class="cv-header">
     <div class="cv-header-container">
 
-      <!-- Left: Back link & Profile info -->
       <!-- Left: Back link & Profile info -->
       <div class="cv-header-left">
         <a href="index.html" class="cv-back-btn" title="Back to Portfolio">
@@ -55,7 +135,7 @@
         <div class="cv-nav-divider"></div>
 
         <div class="cv-nav-profile">
-          <img src="./assets/avatar.jpg" alt="Dang Hong Phuc" class="cv-nav-avatar">
+          <img src="./assets/avatar.jpg" alt="Đặng Hồng Phúc" class="cv-nav-avatar" width="38" height="38" loading="lazy" decoding="async">
           <div class="cv-nav-info">
             <h1 class="cv-nav-name">Đặng Hồng Phúc</h1>
             <span class="cv-nav-role" data-i18n="cv_role">Backend Developer</span>

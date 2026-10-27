@@ -4,30 +4,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phuc Dang - Backend Developer Portfolio</title>
+  <title>Đặng Hồng Phúc (PhucDnag) — Backend Developer Portfolio | Node.js & MongoDB</title>
   <meta name="description"
-    content="Portfolio of Phuc Dang, a Backend Web Developer specialized in Next.js, React, Node.js, and modern digital experiences.">
-  <meta name="keywords" content="Phuc Dang, Backend Developer, Next.js, React, Node.js, Web Developer Portfolio">
-  <meta name="author" content="Phuc Dang">
+    content="Hồ sơ năng lực & Portfolio của Đặng Hồng Phúc (Dang Hong Phuc) - Lập trình viên Backend chuyên Node.js, Express.js, TypeScript, MongoDB. Dự án TravelGo, TechJobs và CV trực tuyến.">
+  <meta name="keywords"
+    content="Đặng Hồng Phúc, Dang Hong Phuc, PhucDnag, Phuc Dang, Backend Developer, Node.js, Express.js, TypeScript, MongoDB, RESTful API, Portfolio, HaUI, Lập trình viên Backend, MERN Stack">
+  <meta name="author" content="Đặng Hồng Phúc (Dang Hong Phuc)">
 
-  <!-- Open Graph / Meta -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Phuc Dang — Backend Web Developer Portfolio">
-  <meta property="og:description" content="Explore selected projects, experience, and tech stack of Phuc Dang.">
-  <meta property="og:image" content="./assets/avatar.jpg">
+  <!-- Robots & Search Engine Indexing -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow">
+
+  <!-- Canonical & Alternate Language Links -->
+  <link rel="canonical" href="https://phucdnag.github.io/portfolio/">
+  <link rel="alternate" hreflang="vi" href="https://phucdnag.github.io/portfolio/">
+  <link rel="alternate" hreflang="en" href="https://phucdnag.github.io/portfolio/">
+  <link rel="alternate" hreflang="x-default" href="https://phucdnag.github.io/portfolio/">
+
+  <!-- Theme Color for Mobile Browsers -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#090d16" media="(prefers-color-scheme: dark)">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Đặng Hồng Phúc — Backend Developer Portfolio">
+  <meta property="og:description"
+    content="Khám phá các dự án Backend nổi bật (TravelGo, TechJobs), kỹ năng Node.js, Express, TypeScript, MongoDB và CV trực tuyến của Đặng Hồng Phúc.">
+  <meta property="og:url" content="https://phucdnag.github.io/portfolio/">
+  <meta property="og:site_name" content="Đặng Hồng Phúc Portfolio">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
+  <meta property="og:image:secure_url" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="Đặng Hồng Phúc - Backend Developer">
+  <meta property="profile:first_name" content="Phúc">
+  <meta property="profile:last_name" content="Đặng Hồng">
+  <meta property="profile:username" content="phucdnag">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Đặng Hồng Phúc — Backend Developer Portfolio">
+  <meta name="twitter:description"
+    content="Backend Developer Intern specializing in Node.js, Express.js, TypeScript, and MongoDB. Explore projects & online CV.">
+  <meta name="twitter:image" content="https://phucdnag.github.io/portfolio/assets/avatar.jpg">
+  <meta name="twitter:image:alt" content="Đặng Hồng Phúc - Backend Developer">
 
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="./assets/avatar.jpg">
+  <link rel="apple-touch-icon" href="./assets/avatar.jpg">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts Preconnect & Stylesheet -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="./assets/avatar.jpg" fetchpriority="high">
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://phucdnag.github.io/portfolio/#person",
+        "name": "Đặng Hồng Phúc",
+        "alternateName": ["Dang Hong Phuc", "PhucDnag", "Phuc Dang"],
+        "jobTitle": "Backend Developer",
+        "description": "Backend Developer Intern specializing in Node.js, Express.js, TypeScript, and MongoDB.",
+        "image": "https://phucdnag.github.io/portfolio/assets/avatar.jpg",
+        "url": "https://phucdnag.github.io/portfolio/",
+        "email": "mailto:phucdnag.dev@gmail.com",
+        "telephone": "+84332027551",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bắc Từ Liêm",
+          "addressRegion": "Hà Nội",
+          "addressCountry": "VN"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Hanoi University of Industry (HaUI)",
+          "sameAs": "https://www.haui.edu.vn"
+        },
+        "sameAs": [
+          "https://github.com/PhucDnag",
+          "https://gitlab.com/phucdnag",
+          "https://www.linkedin.com/in/phucdnag/"
+        ],
+        "knowsAbout": [
+          "Node.js",
+          "Express.js",
+          "TypeScript",
+          "JavaScript",
+          "MongoDB",
+          "Mongoose",
+          "MySQL",
+          "RESTful API",
+          "Socket.IO",
+          "JSON Web Tokens (JWT)",
+          "ReactJS",
+          "Next.js",
+          "Git",
+          "Postman",
+          "MVC Architecture"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://phucdnag.github.io/portfolio/#webpage",
+        "url": "https://phucdnag.github.io/portfolio/",
+        "name": "Đặng Hồng Phúc — Backend Developer Portfolio & CV",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://phucdnag.github.io/portfolio/#website",
+          "url": "https://phucdnag.github.io/portfolio/",
+          "name": "Đặng Hồng Phúc Portfolio",
+          "description": "Official Portfolio & CV of Dang Hong Phuc, Backend Developer."
+        },
+        "about": {
+          "@id": "https://phucdnag.github.io/portfolio/#person"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://phucdnag.github.io/portfolio/assets/avatar.jpg"
+        },
+        "inLanguage": ["vi", "en"]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -163,7 +277,7 @@
         <div class="hero-right">
           <div class="avatar-wrapper">
             <div class="avatar-circle">
-              <img src="./assets/avatar.jpg" alt="Dang Hong Phuc - Profile Portrait" class="avatar-img">
+              <img src="./assets/avatar.jpg" alt="Đặng Hồng Phúc (PhucDnag) - Backend Developer Portrait" class="avatar-img" width="280" height="280" fetchpriority="high">
             </div>
 
             <!-- Floating Badge 2: Main Language -->
@@ -206,7 +320,7 @@
         <div class="about-grid">
           <!-- Left: Profile Photo Card -->
           <div class="about-photo-card reveal-on-scroll">
-            <img src="./assets/avatar.jpg" alt="Dang Hong Phuc - About Me" class="about-img">
+            <img src="./assets/avatar.jpg" alt="Đặng Hồng Phúc - About Me Portrait" class="about-img" loading="lazy" decoding="async" width="400" height="480">
             <div class="photo-glow"></div>
           </div>
 
@@ -431,7 +545,7 @@
           <!-- Project 1: TravelGo Website -->
           <article class="project-card reveal-on-scroll">
             <div class="project-thumbnail-wrapper">
-              <img src="./assets/project_travelgo.png" alt="TravelGo Website - Server Side Rendering" class="project-thumb">
+              <img src="./assets/project_travelgo.png" alt="TravelGo Website - Server Side Rendering Tour Booking Backend System" class="project-thumb" loading="lazy" decoding="async" width="600" height="340">
               <div class="thumbnail-overlay">
                 <span class="live-tag" data-i18n="project1_tag">Server Side Rendering</span>
               </div>
@@ -458,7 +572,7 @@
           <!-- Project 2: TechJobs Website -->
           <article class="project-card reveal-on-scroll">
             <div class="project-thumbnail-wrapper">
-              <img src="./assets/project_techjobs.png" alt="TechJobs Website - Client Side Rendering" class="project-thumb">
+              <img src="./assets/project_techjobs.png" alt="TechJobs Website - Client Side Rendering IT Recruitment Platform" class="project-thumb" loading="lazy" decoding="async" width="600" height="340">
               <div class="thumbnail-overlay">
                 <span class="live-tag" data-i18n="project2_tag">Client Side Rendering</span>
               </div>
@@ -571,7 +685,7 @@
     <div class="ai-chat-header">
       <div class="ai-header-left">
         <div class="ai-avatar-circle">
-          <img src="./assets/avatar.jpg" alt="Dang Hong Phuc">
+          <img src="./assets/avatar.jpg" alt="Đặng Hồng Phúc AI Assistant" width="36" height="36" loading="lazy" decoding="async">
         </div>
         <div class="ai-header-meta">
           <h4 class="ai-header-title" data-i18n="ai_header_title">Phuc's Assistant</h4>
